@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"  href="https://img.freepik.com/free-vector/happy-new-year-2023-celebration-background-with-firework_1017-40384.jpg?w=2000">
+    <title>Happy New Year - 2023</title>
+    <link rel="stylesheet" href="./stye.css ">
+</head>
+<body>
+    <video loop autoplay muted id="back-video">
+        <source  src="./data/PhÃ¡o Hoa - 32826.mp4">
+    </video>
+    <h1>New Year Countdown</h1>
+    <div class="Countdown" id="Countdown">
+        <div class="time">
+            <h2 id="days"></h2>
+            <small>Days</small>
+        </div>
+        <div class="time">
+            <h2 id="Hours"></h2>
+            <small>Hours</small>
+        </div>
+        <div class="time">
+            <h2 id="Minutes"></h2>
+            <small>Minutes</small>
+        </div>
+        <div class="time">
+            <h2 id="Seconds"></h2>
+            <small>Seconds</small>
+        </div>
+    </div>
+
+    <script>
+        const days = document.querySelector('#days')
+        const hours = document.querySelector('#Hours')
+        const minutes = document.querySelector('#Minutes')
+        const seconds = document.querySelector('#Seconds')
+
+        const CurrentYear = new Date().getFullYear()
+        const NewYear = new Date (`January 1 ${CurrentYear +1} 00:00:00`)
+
+        function Countdown(){
+            const CurrentTime = new Date();
+            const diff = NewYear - CurrentTime
+
+            // tinh ngay gio countdown
+            const d = Math.floor(diff / 1000 / 3600/ 24)
+            const h = Math.floor(diff / 1000 / 3600) % 24
+            const m = Math.floor(diff / 1000 / 60) % 60
+            const s = Math.floor(diff / 1000) % 60
+
+            days.innerHTML = d 
+            hours.innerHTML = h < 10 ? '0' + h : h
+            minutes.innerHTML = m   < 10 ? '0' + m : m
+            seconds.innerHTML = s   < 10 ? '0' + s : s
+
+
+        }
+        setInterval(Countdown, 1000)
+    </script>
+</body>
+</html>
