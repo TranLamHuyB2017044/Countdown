@@ -67,7 +67,7 @@ musicPlay.onclick = function(){
 }
 
 musicPause.onclick = function(){
-    audio.pause()
+    audio.pause()   
     musicPlay.style.display = "inline-block"
     musicPause.style.display = "none"
 }
